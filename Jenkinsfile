@@ -2,13 +2,13 @@ pipline{
 	agent any
 	stages{
 		stage("Run Test"){
-			step{
-				sh "docker-compose up"	
+			steps{
+				bat "docker-compose up"	
 			}
 		}
 		stage("Bring Grrid down"){
-			step{
-				sh "docker-compose dow"
+			steps{
+				bat "docker-compose dow"
 			}
 		}
 	}
