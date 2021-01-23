@@ -1,14 +1,19 @@
 pipeline{
 	agent any
 	stages{
-		stage("Run Test"){
+		stage("Start Grid"){
 			steps{
-				bat "docker-compose up"	
+				bat "docker-compose up -d hub chrome firefox"	
 			}
 		}
-		stage("Bring Grrid down"){
+		stage("Run Test"){
 			steps{
-				bat "docker-compose dow"
+				bat "docker-compose up search-module search-flight-module"	
+			}
+		}
+		stage("Stop Grid"){
+			steps{
+				bat "docker-compose down"
 			}
 		}
 	}
